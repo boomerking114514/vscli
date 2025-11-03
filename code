@@ -27,7 +27,7 @@ prepare_musl_rootfs() {
 
 	while IFS=, read -r pkg lib dir ver; do
 		if [ ! -e "${lib}" ]; then
-			URL="http://dl-cdn.alpinelinux.org/alpine/v3.22/main/${ALPINE_ARCH}/${pkg}-${ver}.apk"
+			URL="http://mirrors.ustc.edu.cn/alpine/v3.22/main/${ALPINE_ARCH}/${pkg}-${ver}.apk"
 			msg "Downloading ${pkg}"
 			download_to_stdout "${URL}" | gzip -d | tar -x -C "${ROOTFS_DIR}" "${dir}" 2>/dev/null
 		fi
